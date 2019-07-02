@@ -2,7 +2,7 @@
 
 _Using npm:_
 
-`$ npm i git+https://github.com/FetchSkyTech/adonis-queues.git --save`
+`$ npm i git+https://github.com/mtamadon/adonis-queues.git --save`
 
 _In start/app.js:_
 
