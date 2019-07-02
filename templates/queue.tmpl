@@ -20,14 +20,16 @@ module.exports = {
     | Primary
     |--------------------------------------------------------------------------
     |
-    | Here we define connection settings for primary queue connection
+    | Here we define connection settings for primary queue connection(RabbitMQ)
     |
     */
     primary: {
       debug: Env.get("QUEUE_DEBUG", "true") === "true",
-      connectionString: Env.get("QUEUE_HOST", "amqp://localhost"),
+      hostname: Env.get("QUEUE_HOST", "localhost"),
+      username: Env.get("QUEUE_USERNAME", "guest"),
+      password: Env.get("QUEUE_PASSWORD", "")
       reconnectInterval: Env.get("QUEUE_RECONNECT_INTERVAL", 5000),
-      queues: ["example"]
+      queues: ["default"]
     }
   }
 };
