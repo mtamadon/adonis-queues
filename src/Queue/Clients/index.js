@@ -21,7 +21,11 @@ class Connection {
     this._channels = {};
     this._logger = logger;
     this._debug = config.debug;
-    this._connectionString = config.connectionString;
+    this._connectionConfig = {
+      hostname: config.hostname,
+      username: config.username,
+      password: config.password
+    }
     this._reconnectInterval = config.reconnectInterval;
     this._queues = isArray(config.queues) ? config.queues : [];
   }
@@ -64,7 +68,7 @@ class Connection {
    * @returns {Promise}
    */
   async _connect() {
-    this._connection = await amqplib.connect(this._connectionString);
+    this._connection = await amqplib.connect(this._connectionConfig);
     this._channels = await this._createChannels();
     this._connection.on("close", async () => {
       this._logger.error(`${this._type} queue connection "${this._name}" is disconnected`);
