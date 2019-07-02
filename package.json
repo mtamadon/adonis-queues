@@ -1,6 +1,6 @@
 {
   "name": "adonis-queues",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Queue package for Adonisjs",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/FetchSkyTech/adonis-queues.git"
+    "url": "https://github.com/mtamadon/adonis-queues.git"
   },
   "keywords": [
     "adonis",
@@ -20,14 +20,14 @@
     "queue"
   ],
   "author": {
-    "name": "Hadi Rajani",
-    "email": "hrajani@fetchsky.com"
+    "name": "Mahdi Tamadon"
+    "email": "mtamadon1997@gmail.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FetchSkyTech/adonis-queues.git"
+    "url": "https://github.com/mtamadon/adonis-queues.git"
   },
-  "homepage": "https://github.com/FetchSkyTech/adonis-queues",
+  "homepage": "https://github.com/mtamadon/adonis-queues",
   "peerDependencies": {
     "@adonisjs/ace": "git+https://github.com/adonisjs/ace.git#dawn",
     "@adonisjs/fold": "^4.0.7",
