@@ -16,19 +16,16 @@ class QueueProvider extends ServiceProvider {
     this.app.bind("Adonis/Src/Queue/Managers/Consumer", app => {
       return new ConsumerQueue(app.use("Adonis/Src/Config"), app.use("Adonis/Src/Logger"));
     });
-    this.registerCommands();
+    const commands = ["Init", "Job", "Work"];
+    commands.forEach(command => {
+      this.app.bind(`Queue/Commands/Queue:${command}`, () => {
+        return require(`../commands/${command}`);
+      });
+    });
+    
     hooks.before.httpServer(() => {
       const QueueManager = use("Adonis/Src/Queue/Managers/Producer");
       QueueManager.createConnections();
-    });
-  }
-
-  registerCommands() {
-    const commands = ["Init", "Job", "Work"];
-    commands.forEach(command => {
-      this.app.bind(`Adonis/Commands/Queue:${command}`, () => {
-        return require(`../commands/${command}`);
-      });
     });
   }
 }
