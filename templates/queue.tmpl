@@ -27,7 +27,7 @@ module.exports = {
       debug: Env.get("QUEUE_DEBUG", "true") === "true",
       hostname: Env.get("QUEUE_HOST", "localhost"),
       username: Env.get("QUEUE_USERNAME", "guest"),
-      password: Env.get("QUEUE_PASSWORD", "")
+      password: Env.get("QUEUE_PASSWORD", ""),
       reconnectInterval: Env.get("QUEUE_RECONNECT_INTERVAL", 5000),
       queues: ["default"]
     }
