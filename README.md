@@ -6,8 +6,8 @@ _Using npm:_
 
 _In start/app.js:_
 
-* Add `"adonis-queues/providers/QueueProvider"` in providers array
-* Add `"Adonis/Commands/Queue:Init"`, `"Adonis/Commands/Queue:Work"` & `"Adonis/Commands/Queue:Job"` in commands array.
+* Add `'adonis-queues/providers/QueueProvider'` in providers array
+* Add `'adonis-queues/providers/CommandsProvider'` in commands array.
 
 _Execute the following command to generate the config file_
 
