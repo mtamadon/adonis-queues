@@ -1,5 +1,4 @@
 "use strict";
-const Drive = use("Drive");
 const Helpers = use("Helpers");
 const { render } = require("mustache");
 const { Command } = use("@adonisjs/ace");
@@ -35,13 +34,10 @@ class QueueJob extends Command {
       this.error("Job name not specified");
       return false;
     }
-    const fileContent = await Drive.get(__dirname + "/../templates/job.tmpl", "utf8");
-    await Drive.put(
-      Helpers.appRoot("app/Jobs/" + args.name + ".js"),
-      render(fileContent, {
-        Job: args.name
-      })
-    );
+    const fileContent = fs.readFileSync(__dirname + "/../templates/job.tmpl", "utf8");
+    fs.writeFileSync(Helpers.appRoot("app/Jobs/" + args.name + ".js"), render(fileContent, {
+      Job: args.name
+    }))
   }
 }
 
