@@ -1,6 +1,6 @@
 {
   "name": "adonis-queues",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Queue package for Adonisjs",
   "main": "index.js",
   "scripts": {
@@ -30,8 +30,7 @@
   "homepage": "https://github.com/mtamadon/adonis-queues",
   "peerDependencies": {
     "@adonisjs/ace": "git+https://github.com/adonisjs/ace.git#dawn",
-    "@adonisjs/fold": "^4.0.7",
-    "@adonisjs/drive": "^1.0.2"
+    "@adonisjs/fold": "^4.0.7"
   },
   "devDependencies": {
     "@adonisjs/ace": "git+https://github.com/adonisjs/ace.git#dawn",
