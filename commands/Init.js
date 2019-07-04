@@ -1,6 +1,6 @@
 "use strict";
 
-const Drive = use("Drive");
+const fs = require('fs');
 const Helpers = use("Helpers");
 const { Command } = use("@adonisjs/ace");
 
@@ -31,7 +31,7 @@ class QueueInit extends Command {
    * @returns {Promise}
    */
   async handle(args, options) {
-    await Drive.copy(__dirname + "/../templates/queue.tmpl", Helpers.appRoot("config/queue.js"));
+    fs.copyFileSync(__dirname + "/../templates/queue.tmpl", Helpers.appRoot("config/queue.js"));
   }
 }
 
