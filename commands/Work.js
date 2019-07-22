@@ -73,8 +73,6 @@ class QueueWork extends Command {
   async _runJob(content) {
     try {
       const data = this._parseData(content);
-      console.log("DATA",data)
-
       const Job = use(data.job);
       const job = new Job(null);
       await job.handle(data.data);
