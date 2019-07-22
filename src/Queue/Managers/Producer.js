@@ -10,11 +10,15 @@ class QueueManager {
   constructor(Config, Logger) {
     this._connections = {};
     const queueConfig = Config.get("queue");
-    for (let connectionName in queueConfig.connections) {
-      let config = queueConfig.connections[connectionName];
-      this._connections[connectionName] = new Client(connectionName, Logger, config);
-    }
-    this._defaultConnection = this._connections[queueConfig.connection];
+    // for (let connectionName in queueConfig.connections) {
+
+    //   let config = queueConfig.connections[connectionName];
+    //   this._connections[connectionName] = new Client(connectionName, Logger, config);
+    // }
+    let config = queueConfig.connections['job'];
+    this._connections['job'] = new Client('job', Logger, config);
+
+    this._defaultConnection = this._connections['jobs'];
   }
 
   /**
@@ -37,9 +41,9 @@ class QueueManager {
    * @returns {Void}
    */
   createConnections() {
-    for (var connectionName in this._connections) {
-      this._connections[connectionName].createConnection();
-    }
+    console.log
+    this._connections['job'].createConnection();
+
   }
 
   /**
