@@ -36,9 +36,6 @@ class QueueWork extends Command {
       const connectionName = args.connection;
       const queueName = options.queue && options.queue !== true ? options.queue : "default";
       await QueueManager.connect(queueName, connectionName);
-     
-      const ProducerManager = use("Adonis/Src/Queue/Managers/Producer");
-      ProducerManager.createConnections();
 
       if (QueueManager.connected) {
         QueueManager.onReceive = msg => this._onReceive(msg);
@@ -78,9 +75,8 @@ class QueueWork extends Command {
       const job = new Job(null);
       await job.handle(data.data);
     } catch (err) {
-      this.error("Failed to run job. Exiting process...");
-      console.log(err)
-      process.exit(1);
+      this.error("Failed to run job.");
+      console.log("JOBERR",err)
     }
   }
 
