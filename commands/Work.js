@@ -31,6 +31,7 @@ class QueueWork extends Command {
    * @returns {Promise}
    */
   async handle(args, options) {
+    use("Adonis/Src/Queue/Managers/Producer").createConnections()
     try {
       const connectionName = args.connection;
       const queueName = options.queue && options.queue !== true ? options.queue : "default";
